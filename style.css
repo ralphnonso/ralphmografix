@@ -398,14 +398,19 @@ img.logo{
 
 
 /* Container Layout */
+
+/* Container Layout */
 .pricing-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 35px;
-    padding: 60px 20px;
-    background: #0d010b; /* Deep dark magenta background */
+    padding: 40px 15px; /* Slightly adjusted padding for mobile screens */
+    background: #0d010b; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    overflow-x: hidden; /* Hard cut-off to prevent overall page shaking/scrolling */
+    box-sizing: border-box;
 }
 
 .pricing-title {
@@ -414,6 +419,7 @@ img.logo{
     margin-bottom: 15px;
     text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
     font-weight: 700;
+    text-align: center;
 }
 
 /* Glassmorphism Card Layout */
@@ -423,49 +429,52 @@ img.logo{
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
-    padding: 30px;
+    padding: 24px;
     width: 100%;
-    max-width: 650px; /* Wider layout to cleanly balance icon + text side-by-side */
+    max-width: 450px; /* Constrained boundary for clean mobile alignment */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column; /* Default vertical stack on mobile phones */
-    gap: 25px;
+    flex-direction: column; /* STRICT vertical layout on all phone screens */
+    align-items: center;    /* Keeps components balanced in the middle */
+    gap: 20px;
     box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;       /* Eliminates horizontal child leakage */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pricing-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
-    border-color: rgba(255, 0, 128, 0.5);
 }
 
-/* Left Brand-Icon Styling */
+/* Left/Top Graphic Icon Styling */
 .card-left-branding {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .main-card-icon {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
-    /* Softly brightens your custom icons if needed */
     filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.3)); 
 }
 
-/* Right Side Text Block Container */
+/* Right/Bottom Text Content Container */
 .card-right-content {
-    flex: 1;
+    width: 100%; /* Forces internal block elements to follow standard block margins */
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 /* Header & Badges */
 .card-header {
     margin-bottom: 20px;
+    text-align: center; /* Centers item tags on mobile phone viewports */
 }
 
 .badge-title {
@@ -479,46 +488,50 @@ img.logo{
     box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
 }
 
-/* Features List */
+/* Features List Setup */
 .features-list {
     list-style: none;
     padding: 0;
     margin: 0 0 25px 0;
+    width: 100%;
 }
 
 .features-list li {
     color: #e0e0e0;
-    padding: 8px 0;
-    font-size: 1.05rem;
+    padding: 12px 0;
+    font-size: 1rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Aligns text cleanly beside the check graphic */
     gap: 12px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    line-height: 1.4;
 }
 
-/* CSS Magic: Changes checkmark.png from black/gray to Glowing Pink */
 .list-check {
     width: 18px;
     height: 18px;
     object-fit: contain;
+    margin-top: 2px; /* Micro-adjustment layout balance */
     filter: invert(11%) sepia(97%) saturate(6414%) hue-rotate(325deg) brightness(97%) contrast(101%) drop-shadow(0 0 4px rgba(255, 0, 128, 0.6));
 }
 
-/* Footer Information Area */
+/* Delivery & Price Split Container */
 .card-footer {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
+    gap: 12px;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .delivery-box, .price-box {
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 0, 128, 0.15);
     border-radius: 14px;
-    padding: 12px;
+    padding: 10px;
     flex: 1;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .price-box {
@@ -528,26 +541,26 @@ img.logo{
 .footer-label {
     display: block;
     color: #a0a0a0;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin-bottom: 4px;
 }
 
 .footer-value {
     color: #ffffff;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .price-value {
     color: #ffffff;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     text-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-/* Direct Response Conversion Button */
+/* Call to Action Buttons */
 .cta-button {
     display: block;
     text-align: center;
@@ -557,16 +570,48 @@ img.logo{
     padding: 14px;
     border-radius: 14px;
     font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
+    font-size: 1.05rem;
     transition: background 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .cta-button:hover {
     background: #e60072;
     box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
 }
+
+/* Desktop Expansion: Activates smoothly on tablets & laptop layouts */
+@media (min-width: 768px) {
+    .pricing-card {
+        flex-direction: row; /* Safely layouts icons left and items right on wider screens */
+        max-width: 650px;
+        align-items: center;
+        padding: 30px;
+    }
+    
+    .card-left-branding {
+        width: auto;
+        padding-right: 20px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 0;
+    }
+    
+    .main-card-icon {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .card-header {
+        text-align: left;
+    }
+}
+
+
+
+
+
 
 
 
