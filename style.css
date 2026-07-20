@@ -396,6 +396,188 @@ img.logo{
 
 
 
+
+/* Container Layout */
+.pricing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding: 60px 20px;
+    background: #0d010b; /* Deep dark magenta background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.pricing-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+    font-weight: 700;
+}
+
+/* Glassmorphism Card Layout */
+.pricing-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 30px;
+    width: 100%;
+    max-width: 650px; /* Wider layout to cleanly balance icon + text side-by-side */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column; /* Default vertical stack on mobile phones */
+    gap: 25px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+    border-color: rgba(255, 0, 128, 0.5);
+}
+
+/* Left Brand-Icon Styling */
+.card-left-branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.main-card-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    /* Softly brightens your custom icons if needed */
+    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.3)); 
+}
+
+/* Right Side Text Block Container */
+.card-right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Badges */
+.card-header {
+    margin-bottom: 20px;
+}
+
+.badge-title {
+    background: linear-gradient(90deg, #ff007f, #b30059);
+    color: white;
+    padding: 8px 22px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
+}
+
+/* Features List */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.features-list li {
+    color: #e0e0e0;
+    padding: 8px 0;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* CSS Magic: Changes checkmark.png from black/gray to Glowing Pink */
+.list-check {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: invert(11%) sepia(97%) saturate(6414%) hue-rotate(325deg) brightness(97%) contrast(101%) drop-shadow(0 0 4px rgba(255, 0, 128, 0.6));
+}
+
+/* Footer Information Area */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.delivery-box, .price-box {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 0, 128, 0.15);
+    border-radius: 14px;
+    padding: 12px;
+    flex: 1;
+    text-align: center;
+}
+
+.price-box {
+    background: linear-gradient(135deg, rgba(255, 0, 128, 0.08), rgba(0, 0, 0, 0.6));
+}
+
+.footer-label {
+    display: block;
+    color: #a0a0a0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.footer-value {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.price-value {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+}
+
+/* Direct Response Conversion Button */
+.cta-button {
+    display: block;
+    text-align: center;
+    background: #ff007f;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+}
+
+.cta-button:hover {
+    background: #e60072;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
 .cta{
     margin-top: 60px;
     padding: 60px 20px;
@@ -559,4 +741,21 @@ img.logo{
          grid-template-columns: repeat(1, 1fr);
          grid-auto-rows: 475px;
     }
+
+.pricing-card {
+        flex-direction: row; /* Aligns graphic icon on left, content on right */
+        align-items: center;
+    }
+    
+    .card-left-branding {
+        padding-right: 15px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .main-card-icon {
+        width: 120px;
+        height: 120px;
+    }
 }
+
+
