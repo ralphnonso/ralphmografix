@@ -399,87 +399,86 @@ img.logo{
 
 /* Container Layout */
 
-/* Container Layout */
+/* RESET & GENERAL STYLES */
+
+
+/* CONTAINER & WRAPPER */
 .pricing-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px;
-    padding: 40px 15px; /* Slightly adjusted padding for mobile screens */
-    background: #0d010b; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 50px 20px;
     width: 100%;
-    overflow-x: hidden; /* Hard cut-off to prevent overall page shaking/scrolling */
-    box-sizing: border-box;
+    background: #0d010b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
 }
 
 .pricing-title {
     color: #ffffff;
     font-size: 2.2rem;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
     font-weight: 700;
     text-align: center;
 }
 
-/* Glassmorphism Card Layout */
+/* WRAPPER: Mobile = Column | Desktop = Row */
+.pricing-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    align-items: center;
+}
+
+/* GLASS CARD STYLING */
 .pricing-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    padding: 24px;
+    padding: 25px;
     width: 100%;
-    max-width: 450px; /* Constrained boundary for clean mobile alignment */
+    max-width: 450px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column; /* STRICT vertical layout on all phone screens */
-    align-items: center;    /* Keeps components balanced in the middle */
+    flex-direction: column;
     gap: 20px;
-    box-sizing: border-box;
-    overflow: hidden;       /* Eliminates horizontal child leakage */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pricing-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
-}
-
-/* Left/Top Graphic Icon Styling */
+/* TOP/LEFT MAIN ICONS */
 .card-left-branding {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 10px;
+    align-items: center;
 }
 
 .main-card-icon {
-    width: 90px;
-    height: 90px;
+    width: 70px !important;
+    height: 70px !important;
+    max-width: 70px !important;
     object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.3)); 
+    filter: drop-shadow(0 0 8px rgba(255, 0, 128, 0.4));
 }
 
-/* Right/Bottom Text Content Container */
+/* CONTENT AREA */
 .card-right-content {
-    width: 100%; /* Forces internal block elements to follow standard block margins */
+    width: 100%;
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
 }
 
-/* Header & Badges */
 .card-header {
     margin-bottom: 20px;
-    text-align: center; /* Centers item tags on mobile phone viewports */
+    text-align: center;
 }
 
 .badge-title {
     background: linear-gradient(90deg, #ff007f, #b30059);
-    color: white;
+    color: #ffffff;
     padding: 8px 22px;
     border-radius: 50px;
     font-weight: 600;
@@ -488,7 +487,7 @@ img.logo{
     box-shadow: 0 0 15px rgba(255, 0, 128, 0.4);
 }
 
-/* Features List Setup */
+/* LIST & CHECKMARK FIX */
 .features-list {
     list-style: none;
     padding: 0;
@@ -498,24 +497,26 @@ img.logo{
 
 .features-list li {
     color: #e0e0e0;
-    padding: 12px 0;
+    padding: 10px 0;
     font-size: 1rem;
     display: flex;
-    align-items: flex-start; /* Aligns text cleanly beside the check graphic */
+    align-items: center;
     gap: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    line-height: 1.4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* STRICT CHECKMARK SIZING & PINK COLORING */
 .list-check {
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
     object-fit: contain;
-    margin-top: 2px; /* Micro-adjustment layout balance */
+    flex-shrink: 0;
     filter: invert(11%) sepia(97%) saturate(6414%) hue-rotate(325deg) brightness(97%) contrast(101%) drop-shadow(0 0 4px rgba(255, 0, 128, 0.6));
 }
 
-/* Delivery & Price Split Container */
+/* FOOTER & PRICE BOXES */
 .card-footer {
     display: flex;
     justify-content: space-between;
@@ -528,53 +529,50 @@ img.logo{
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 0, 128, 0.15);
     border-radius: 14px;
-    padding: 10px;
+    padding: 12px;
     flex: 1;
     text-align: center;
-    box-sizing: border-box;
 }
 
 .price-box {
-    background: linear-gradient(135deg, rgba(255, 0, 128, 0.08), rgba(0, 0, 0, 0.6));
+    background: linear-gradient(135deg, rgba(255, 0, 128, 0.1), rgba(0, 0, 0, 0.6));
 }
 
 .footer-label {
     display: block;
     color: #a0a0a0;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin-bottom: 4px;
 }
 
 .footer-value {
     color: #ffffff;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .price-value {
     color: #ffffff;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     text-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-/* Call to Action Buttons */
+/* BUTTON DESIGN */
 .cta-button {
     display: block;
     text-align: center;
     background: #ff007f;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
     padding: 14px;
     border-radius: 14px;
     font-weight: 700;
     font-size: 1.05rem;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+    transition: background 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .cta-button:hover {
@@ -582,29 +580,16 @@ img.logo{
     box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
 }
 
-/* Desktop Expansion: Activates smoothly on tablets & laptop layouts */
-@media (min-width: 768px) {
+/* DESKTOP SIDE-BY-SIDE LAYOUT */
+@media (min-width: 850px) {
+    .pricing-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+    }
+    
     .pricing-card {
-        flex-direction: row; /* Safely layouts icons left and items right on wider screens */
-        max-width: 650px;
-        align-items: center;
-        padding: 30px;
-    }
-    
-    .card-left-branding {
-        width: auto;
-        padding-right: 20px;
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-        margin-bottom: 0;
-    }
-    
-    .main-card-icon {
-        width: 110px;
-        height: 110px;
-    }
-    
-    .card-header {
-        text-align: left;
+        max-width: 440px;
     }
 }
 
